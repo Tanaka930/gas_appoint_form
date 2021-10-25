@@ -10,9 +10,8 @@ function onFormSubmit(e) {
       var base = new Date(e.values[3]);// 予約の日
       var baseTime = new Date(base.setFullYear(2021));
       var startTime = new Date(baseTime);
-      Logger.log(startTime);
+      
       var endTime = new Date(baseTime.setHours(baseTime.getHours() + 1));// 予約の日
-      Logger.log(endTime);
 
       var appointTime = Utilities.formatDate(new Date(e.values[0]), 'Asia/Tokyo', 'HH:mm');
 
