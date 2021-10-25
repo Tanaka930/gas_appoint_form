@@ -10,9 +10,9 @@ function onFormSubmit(e) {
       var base = new Date(e.values[3]);// 予約の日
       var baseTime = new Date(base.setFullYear(2021));
       var startTime = new Date(baseTime);
-
+      Logger.log(startTime);
       var endTime = new Date(baseTime.setHours(baseTime.getHours() + 1));// 予約の日
-
+      Logger.log(endTime);
 
       var appointTime = Utilities.formatDate(new Date(e.values[0]), 'Asia/Tokyo', 'HH:mm');
 
@@ -185,7 +185,7 @@ function onFormSubmit(e) {
 
       let options = { from: "appoint@openstore-japan.com" };
 
-      GmailApp.sendEmail(salesmanEmail, mailTitle, mailText, options);
+      // GmailApp.sendEmail(salesmanEmail, mailTitle, mailText, options);
       return;
     }
   } catch (error) {
@@ -221,7 +221,7 @@ function ImportantChecklist(importantCheckList, e) {
 function printError(error) {
 
   var mailTitle = "エラー通知";
-  var mailText = "Bridge Over dance studio テレアポ\n\n" +
+  var mailText = "テレアポ\n\n" +
     "[名前] " + error.name + "\n\n" +
     "[場所] " + error.fileName + "(" + error.lineNumber + "行目)\n\n" +
     "[メッセージ]" + error.message + "\n\n" +
@@ -234,5 +234,4 @@ function printError(error) {
     "[メッセージ]" + error.message + "\n" +
     "[StackTrace]\n" + error.stack;
 }
-
 
