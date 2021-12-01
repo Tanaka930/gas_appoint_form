@@ -1,5 +1,4 @@
 function onFormSubmit(e) {
-  console.log(e.values)
 
   const lock = LockService.getScriptLock();
   try {
@@ -7,8 +6,9 @@ function onFormSubmit(e) {
     if (lock.tryLock(10 * 1000)) {
 
       var title = e.values[6];// 予定の名前
-      var base = new Date(e.values[4]);// 予約の日
-      var baseTime = new Date(base.setFullYear(2021));
+      var baseTime = new Date(e.values[4]);// 予約の日
+      // 年入力短縮する場合
+      // var baseTime = new Date(base.setFullYear(2021));
       var startTime = new Date(baseTime);
 
       let endTime = TimeResponse(e.values[5], baseTime);
@@ -241,8 +241,11 @@ function printError(error) {
     "[メッセージ]" + error.message + "\n\n" +
     "[StackTrace]\n" + error.stack;
 
-  GmailApp.sendEmail('yuma.tanaka@openstore-japan.com', mailTitle, mailText);
+  var notificationMail = PropertiesService.getScriptProperties().getProperty("NOTIFICATION_MAIL");
+  console.log(notificationMail)
 
+  GmailApp.sendEmail(notificationMail, mailTitle, mailText);
+  
   return "[名前] " + error.name + "\n" +
     "[場所] " + error.fileName + "(" + error.lineNumber + "行目)\n" +
     "[メッセージ]" + error.message + "\n" +
