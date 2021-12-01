@@ -1,5 +1,7 @@
 function onFormSubmit(e) {
 
+  NOTIFICATION_MAIL = PropertiesService.getScriptProperties().getProperty("NOTIFICATION_MAIL");
+
   const lock = LockService.getScriptLock();
   try {
     // ロックを取得する
@@ -241,10 +243,7 @@ function printError(error) {
     "[メッセージ]" + error.message + "\n\n" +
     "[StackTrace]\n" + error.stack;
 
-  var notificationMail = PropertiesService.getScriptProperties().getProperty("NOTIFICATION_MAIL");
-  console.log(notificationMail)
-
-  GmailApp.sendEmail(notificationMail, mailTitle, mailText);
+  GmailApp.sendEmail(NOTIFICATION_MAIL, mailTitle, mailText);
   
   return "[名前] " + error.name + "\n" +
     "[場所] " + error.fileName + "(" + error.lineNumber + "行目)\n" +
