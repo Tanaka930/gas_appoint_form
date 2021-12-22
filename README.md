@@ -1,5 +1,6 @@
-# gas_appoint_form
-- テレアポ結果管理用
+# Google WorkSpaceを用いたアポイント結果の共有・管理システム
+
+## GAS　設定
 
 - 形式：　コンテナバインドスクリプト
 
