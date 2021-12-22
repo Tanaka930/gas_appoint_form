@@ -1,6 +1,6 @@
 # Google WorkSpaceを用いたアポイント結果の共有・管理システム
 
-![スクリーンショット 2021-12-22 15 58 46](https://user-images.githubusercontent.com/55372083/147050290-7e2c91f7-6083-4b8e-a827-efdbcdeb603c.png)
+<img width="449" alt="スクリーンショット 2021-12-22 16 08 09" src="https://user-images.githubusercontent.com/55372083/147050474-fbaa51ac-0a6c-4c09-9c4e-a11239a4d930.png">
 
 ## GAS　設定
 
